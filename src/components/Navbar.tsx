@@ -1,8 +1,9 @@
-import { ShoppingBag, Menu, X, Crown } from "lucide-react";
+import { ShoppingBag, Menu, X } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import ExclusiveRequestModal from "./ExclusiveRequestModal";
+import mantoLogo from "@/assets/manto-store-logo.png";
 
 const navLinks = [
   { label: "Coleção", href: "#produtos" },

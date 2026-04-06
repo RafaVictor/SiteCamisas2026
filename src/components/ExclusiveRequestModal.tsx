@@ -40,7 +40,7 @@ const ExclusiveRequestModal = ({ open, onClose }: Props) => {
     if (step === 0) return team.trim().length > 0;
     if (step === 1) return season.trim().length > 0;
     if (step === 2) return size.length > 0;
-    if (step === 3) return name.trim().length > 0 && whatsapp.trim().length >= 10;
+    if (step === 3) return name.trim().length > 0;
     return false;
   };
 

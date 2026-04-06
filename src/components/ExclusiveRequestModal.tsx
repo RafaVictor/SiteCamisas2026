@@ -20,7 +20,6 @@ const ExclusiveRequestModal = ({ open, onClose }: Props) => {
   const [season, setSeason] = useState("");
   const [size, setSize] = useState("");
   const [name, setName] = useState("");
-  const [whatsapp, setWhatsapp] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const reset = () => {

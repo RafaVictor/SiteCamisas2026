@@ -20,6 +20,7 @@ const ExclusiveRequestModal = ({ open, onClose }: Props) => {
   const [season, setSeason] = useState("");
   const [size, setSize] = useState("");
   const [name, setName] = useState("");
+  const [whatsapp, setWhatsapp] = useState("");
   const [submitted, setSubmitted] = useState(false);
 
   const reset = () => {
@@ -28,6 +29,7 @@ const ExclusiveRequestModal = ({ open, onClose }: Props) => {
     setSeason("");
     setSize("");
     setName("");
+    setWhatsapp("");
     setSubmitted(false);
   };
 
@@ -40,7 +42,7 @@ const ExclusiveRequestModal = ({ open, onClose }: Props) => {
     if (step === 0) return team.trim().length > 0;
     if (step === 1) return season.trim().length > 0;
     if (step === 2) return size.length > 0;
-    if (step === 3) return name.trim().length > 0;
+    if (step === 3) return name.trim().length > 0 && whatsapp.trim().length >= 10;
     return false;
   };
 
@@ -158,14 +160,24 @@ const ExclusiveRequestModal = ({ open, onClose }: Props) => {
                 )}
 
                 {step === 3 && (
-                  <input
-                    type="text"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    placeholder="Seu nome"
-                    maxLength={50}
-                    className="w-full px-4 py-3 rounded-lg bg-muted border border-primary/20 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
-                  />
+                  <div className="space-y-3">
+                    <input
+                      type="text"
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                      placeholder="Seu nome"
+                      maxLength={50}
+                      className="w-full px-4 py-3 rounded-lg bg-muted border border-primary/20 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                    />
+                    <input
+                      type="tel"
+                      value={whatsapp}
+                      onChange={(e) => setWhatsapp(e.target.value.replace(/[^\d+\-() ]/g, ""))}
+                      placeholder="WhatsApp (com DDD)"
+                      maxLength={20}
+                      className="w-full px-4 py-3 rounded-lg bg-muted border border-primary/20 text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary transition-colors"
+                    />
+                  </div>
                 )}
               </div>
 
